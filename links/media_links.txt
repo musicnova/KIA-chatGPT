@@ -1,0 +1,9 @@
+https://cdn.kia.ru/media-data/banner/icon/Smartphone.svg
+https://cdn.kia.ru/media-data/banners/models/sportage/main/engine.svg
+https://cdn.kia.ru/media-data/banner/icon/8258e1d7-8328-4a2a-8b8e-5b5dfb0b23d4.svg
+https://cdn.kia.ru/master-data/overviews//DJS4/20212021/D00J/CR5/1.png
+https://cdn.kia.ru/resize/1020x480/media-data/banners/models/cerato_new/desc/Cerato_940x348.png
+https://cdn.kia.ru/site-data/e544720e-8480-4139-a428-dc7ecc4b05b7.svg
+https://cdn.kia.ru/site-data/menu/test-drive.svg
+https://cdn.kia.ru/site-data/menu/strip_icons/credit.svg
+https://cdn.kia.ru/site-data/menu/strip_icons/files.svg
