@@ -1,36 +1,55 @@
-from pytube import YouTube
+from pytube import YouTube, exceptions
 import configparser
 import os
 
 def check_and_create_download_path(path):
-    """Проверяет наличие указанной директории и, если она не существует, создаёт её."""
     if not os.path.exists(path):
         os.makedirs(path)
 
-# Читаем файл конфигурации
-config = configparser.ConfigParser()
-config.read('config.ini')
-download_path = config['DOWNLOAD']['path']
-
-# Проверяем и создаем папку для загрузки, если она не существует
-check_and_create_download_path(download_path)
-
-os.system('clear')  # Для UNIX-подобных систем, включая Linux и macOS или os.system('cls') для Windows
-
 def download_best_mp4_video(link):
-    yt = YouTube(link)
-    print(f"🎦 Видео для скачивания: {yt.title}")
-
+    try:
+        yt = YouTube(link)
+        print(f"🎦 Видео для скачивания: {yt.title}")
+        return yt.title
+    except exceptions.VideoUnavailable:
+        print(f"🔞 Видео недоступно: {link}")
+    except exceptions.VideoPrivate:
+        print(f"🔞 Видео приватное: {link}")
+    except KeyError:
+        print(f"🔞 Не удалось получить информацию о видео: {link}")
+    return None
 
 def is_valid_youtube_url(url):
     if "youtube.com" in url or "youtu.be" in url:
         return True
     return False
 
-my_url = input("🌐 Введите ссылку на YouTube видео: ")
+def read_urls_from_file(file_path):
+    with open(file_path, 'r') as file:
+        return file.readlines()
 
+def write_titles_to_file(titles, file_path):
+    with open(file_path, 'w') as file:
+        for title in titles:
+            if title:  # Пропустить None значения
+                file.write(f"{title}\n")
 
-if is_valid_youtube_url(my_url):
-    download_best_mp4_video(my_url)
-else:
-    print("🔞 Пожалуйста, введите корректную ссылку на YouTube видео.")
+if __name__ == "__main__":
+    config = configparser.ConfigParser()
+    config.read('config.ini')
+    download_path = config['DOWNLOAD']['path']
+
+    check_and_create_download_path(download_path)
+    os.system('clear')
+
+    urls = read_urls_from_file("urls.txt")
+    video_titles = []
+
+    for url in urls:
+        # url = url.strip()
+        if is_valid_youtube_url(url):
+            title = download_best_mp4_video(url)
+            if title:  # Добавить только непустые названия
+                video_titles.append(title)
+
+    write_titles_to_file(video_titles, "video_titles.txt")
