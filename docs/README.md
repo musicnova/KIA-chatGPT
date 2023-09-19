@@ -17,9 +17,9 @@ graph TD
 ```mermaid
 graph TD
     WebClient["Web Client"] -->|HTTP/HTTPS| API["API (FastAPI)"]
-    AppClient["App Client"] -->|HTTP/HTTPS| API
+    AppClient["App Client (PyQt6)"] -->|HTTP/HTTPS| API
     TgBot["Telegram Bot"] -->|HTTP/HTTPS| API
-    DesktopClient["Desktop App (PyQt6)"] -->|HTTP/HTTPS| API
+    AndroidClient["Android App "] -->|HTTP/HTTPS| API
     
     API -->|REST| SQLService["Service A (SQL DB)"]
     API -->|REST| MongoService["Service B (MongoDB)"]
