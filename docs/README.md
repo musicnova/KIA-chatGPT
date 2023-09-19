@@ -18,13 +18,16 @@ graph TD
 graph TD
     WebClient["Web Client"] -->|HTTP/HTTPS| API["API (FastAPI)"]
     AppClient["App Client"] -->|HTTP/HTTPS| API
-    DesktopClient["Desktop App"] -->|HTTP/HTTPS| API
+    TgBot["Telegram Bot"] -->|HTTP/HTTPS| API
+    DesktopClient["Desktop App (PyQt6)"] -->|HTTP/HTTPS| API
     
     API -->|API Calls| SQLService["Service A (SQL DB)"]
     API -->|API Calls| MongoService["Service B (MongoDB)"]
     API -->|API Calls| OpenAIService["Service C (OpenAI)"]
-    API -->|API Calls| LocalLLM["Local LLM"]
+    API -->|API Calls| LocalLLM["LLM (Local Server)"]
 ```
+
+---
 
 ### Ex.1
 
