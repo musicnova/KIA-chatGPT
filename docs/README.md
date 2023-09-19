@@ -1,4 +1,4 @@
-Схема на языке mermaid:
+## Схема на языке mermaid:
 
 ```mermaid
 graph TD
