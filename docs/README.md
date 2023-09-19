@@ -1,7 +1,7 @@
 ## Схема на языке mermaid:
 
 ```mermaid
-graph TD
+graph TD;
     A[Client Web/App] -->|HTTP/HTTPS| B[API FastAPI]
     B -->|API Calls| C[Service A (SQL DB)]
     B -->|API Calls| D[Service B (MongoDB)]
