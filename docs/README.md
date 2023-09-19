@@ -21,10 +21,10 @@ graph TD
     TgBot["Telegram Bot"] -->|HTTP/HTTPS| API
     DesktopClient["Desktop App (PyQt6)"] -->|HTTP/HTTPS| API
     
-    API -->|API Calls| SQLService["Service A (SQL DB)"]
-    API -->|API Calls| MongoService["Service B (MongoDB)"]
-    API -->|API Calls| OpenAIService["Service C (OpenAI)"]
-    API -->|API Calls| LocalLLM["LLM (Local Server)"]
+    API -->|REST| SQLService["Service A (SQL DB)"]
+    API -->|REST| MongoService["Service B (MongoDB)"]
+    API -->|REST| OpenAIService["Service C (OpenAI)"]
+    API -->|REST| LocalLLM["LLM (Local Server)"]
 ```
 
 ---
