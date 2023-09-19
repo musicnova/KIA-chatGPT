@@ -1,4 +1,4 @@
-## Схема на языке mermaid:
+## Схема 1 на языке mermaid:
 
 ```mermaid
 graph TD
@@ -11,6 +11,20 @@ graph TD
 Здесь клиент ("Client Web/App") соединяется с API ("API FastAPI") через HTTP или HTTPS. 
 Затем API перенаправляет запросы к различным службам ("Service A", "Service B", "Service C") через API вызовы.
 
+
+## Схема 2 на языке mermaid:
+
+```mermaid
+graph TD
+    WebClient["Web Client"] -->|HTTP/HTTPS| API["API (FastAPI)"]
+    AppClient["App Client"] -->|HTTP/HTTPS| API
+    DesktopClient["Desktop App"] -->|HTTP/HTTPS| API
+    
+    API -->|API Calls| SQLService["Service A (SQL DB)"]
+    API -->|API Calls| MongoService["Service B (MongoDB)"]
+    API -->|API Calls| OpenAIService["Service C (OpenAI)"]
+    API -->|API Calls| LocalLLM["Local LLM"]
+```
 
 ### Ex.1
 
