@@ -16,11 +16,13 @@ graph TD
 
 ```mermaid
 graph TD
-    WebClient["Web Client"] -->|HTTP/HTTPS| API["API (FastAPI)"]
-    AppClient["App Client (PyQt6)"] -->|HTTP/HTTPS| API
-    TgBot["Telegram Bot"] -->|HTTP/HTTPS| API
-    AndroidClient["Android App "] -->|HTTP/HTTPS| API
-    
+    WebClient["Web Client"] -->|HTTP/HTTPS| Docker
+    AppClient["App Client (PyQt6)"] -->|HTTP/HTTPS| Docker
+    TgBot["Telegram Bot"] -->|HTTP/HTTPS| Docker
+    AndroidClient["Android App "] -->|HTTP/HTTPS| Docker
+
+    Docker["Docker Container"] -->|Proxy| API["API (FastAPI)"]
+
     API -->|REST| SQLService["Service A (SQL DB)"]
     API -->|REST| MongoService["Service B (MongoDB)"]
     API -->|REST| OpenAIService["Service C (OpenAI)"]
