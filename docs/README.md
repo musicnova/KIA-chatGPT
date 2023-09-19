@@ -11,8 +11,26 @@ graph TD
 Здесь клиент ("Client Web/App") соединяется с API ("API FastAPI") через HTTP или HTTPS. 
 Затем API перенаправляет запросы к различным службам ("Service A", "Service B", "Service C") через API вызовы.
 
+---
 
-## Схема 2 на языке mermaid:
+## Схема 3 на языке mermaid:
+
+```mermaid
+graph TD
+    WebClient["Web Client"] -->|HTTP/HTTPS| API["API (FastAPI)"]
+    AppClient["App Client (PyQt6)"] -->|HTTP/HTTPS| API
+    TgBot["Telegram Bot"] -->|HTTP/HTTPS| API
+    AndroidClient["Android App "] -->|HTTP/HTTPS| API
+    
+    API -->|REST| SQLService["Service A (SQL DB)"]
+    API -->|REST| MongoService["Service B (MongoDB)"]
+    API -->|REST| OpenAIService["Service C (OpenAI)"]
+    API -->|REST| LocalLLM["LLM (Local Server)"]
+```
+
+---
+
+## Схема 3 на языке mermaid:
 
 ```mermaid
 graph TD
