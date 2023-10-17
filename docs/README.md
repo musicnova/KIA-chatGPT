@@ -89,13 +89,13 @@ endsolid
 
 ```mermaid
 graph TD
-    WebClient["Web Client"] -->|HTTP/HTTPS| API["API (FastAPI)"]
-    AppClient["App Client (PyQt6)"] -->|HTTP/HTTPS| API
-    TgBot["Telegram Bot"] -->|HTTP/HTTPS| API
-    AndroidClient["Android App "] -->|HTTP/HTTPS| API
+    WebClient["Web Client"] -->|HTTP/HTTPS| Docker["Docker (FastAPI)"]
+    AppClient["App Client (PyQt6)"] -->|HTTP/HTTPS| Docker
+    TgBot["Telegram Bot"] -->|HTTP/HTTPS| Docker
+    AndroidClient["Android App "] -->|HTTP/HTTPS| Docker
     
-    API -->|REST| SQLService["Service A (SQL DB)"]
-    API -->|REST| MongoService["Service B (MongoDB)"]
-    API -->|REST| OpenAIService["Service C (OpenAI)"]
-    API -->|REST| LocalLLM["LLM (Local Server)"]
+    Docker -->|REST| SQLService["Service A (SQL DB)"]
+    Docker -->|REST| MongoService["Service B (MongoDB)"]
+    Docker -->|REST| OpenAIService["Service C (OpenAI)"]
+    Docker -->|REST| LocalLLM["LLM (Local Server)"]
 ```
