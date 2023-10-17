@@ -83,3 +83,19 @@ solid cube_corner
   endfacet
 endsolid
 ```
+---
+
+## Схема 3 на языке mermaid:
+
+```mermaid
+graph TD
+    WebClient["Web Client"] -->|HTTP/HTTPS| API["API (FastAPI)"]
+    AppClient["App Client (PyQt6)"] -->|HTTP/HTTPS| API
+    TgBot["Telegram Bot"] -->|HTTP/HTTPS| API
+    AndroidClient["Android App "] -->|HTTP/HTTPS| API
+    
+    API -->|REST| SQLService["Service A (SQL DB)"]
+    API -->|REST| MongoService["Service B (MongoDB)"]
+    API -->|REST| OpenAIService["Service C (OpenAI)"]
+    API -->|REST| LocalLLM["LLM (Local Server)"]
+```
