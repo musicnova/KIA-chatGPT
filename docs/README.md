@@ -89,15 +89,17 @@ endsolid
 
 ```mermaid
 graph TD
-    WebClient["Web Client"] -->|HTTP/HTTPS| API
-    AppClient["App Client (PyQt6)"] -->|HTTP/HTTPS| API
-    TgBot["Telegram Bot"] -->|HTTP/HTTPS| API
-    AndroidClient["Android App "] -->|HTTP/HTTPS| API
+    SwaggerUI["Swagger UI"] -->|HTTP/HTTPS| API
+    CLI["CLI (url)"] -->|HTTP/HTTPS| API
+    GoogleColab["Google Colab Client"] -->|HTTP/HTTPS| API
+    TgBot1["Telegram Bot-1"] -->|HTTP/HTTPS| API
+    TgBot2["Telegram Bot-2"] -->|HTTP/HTTPS| API
+    WebClient["Web Client ... X"] -->|HTTP/HTTPS| API
 
     API["API (FastAPI)"] -->|GPU| Docker["Docker Container"]
 
-    Docker -->|REST| SQLService["Service A (SQL DB)"]
-    Docker -->|REST| MongoService["Service B (MongoDB)"]
-    Docker -->|REST| OpenAIService["Service C (OpenAI)"]
-    Docker -->|REST| LocalLLM["LLM (Local Server)"]
+    Docker -->|REST| YOLOv8OBB["YOLOv8 OBB"]
+    Docker -->|REST| YOLOv8Seg["YOLOv8 Segmentation"]
+    Docker -->|REST| OCR["OCR"]
+    Docker -->|REST| xBusinessLogic["x Business Logic"]
 ```
