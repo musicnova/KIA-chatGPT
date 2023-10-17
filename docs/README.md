@@ -30,7 +30,7 @@ graph TD
 
 ---
 
-## Схема 3 на языке mermaid:
+## Схема 4 на языке mermaid:
 
 ```mermaid
 graph TD
@@ -89,13 +89,31 @@ endsolid
 
 ```mermaid
 graph TD
-    WebClient["Web Client"] -->|HTTP/HTTPS| Docker["Docker (FastAPI)"]
+    WebClient["Web Client"] -->|HTTP/HTTPS| API
+    AppClient["App Client (PyQt6)"] -->|HTTP/HTTPS| API
+    TgBot["Telegram Bot"] -->|HTTP/HTTPS| API
+    AndroidClient["Android App "] -->|HTTP/HTTPS| API
+
+    API["API (FastAPI)"] -->|Proxy| Docker["Docker Container"]
+
+    API -->|REST| SQLService["Service A (SQL DB)"]
+    API -->|REST| MongoService["Service B (MongoDB)"]
+    API -->|REST| OpenAIService["Service C (OpenAI)"]
+    API -->|REST| LocalLLM["LLM (Local Server)"]
+```
+
+
+```mermaid
+graph TD
+    WebClient["Web Client"] -->|HTTP/HTTPS| Docker
     AppClient["App Client (PyQt6)"] -->|HTTP/HTTPS| Docker
     TgBot["Telegram Bot"] -->|HTTP/HTTPS| Docker
     AndroidClient["Android App "] -->|HTTP/HTTPS| Docker
-    
-    Docker -->|REST| SQLService["Service A (SQL DB)"]
-    Docker -->|REST| MongoService["Service B (MongoDB)"]
-    Docker -->|REST| OpenAIService["Service C (OpenAI)"]
-    Docker -->|REST| LocalLLM["LLM (Local Server)"]
+
+    Docker["Docker Container"] -->|Proxy| API["API (FastAPI)"]
+
+    API -->|REST| SQLService["Service A (SQL DB)"]
+    API -->|REST| MongoService["Service B (MongoDB)"]
+    API -->|REST| OpenAIService["Service C (OpenAI)"]
+    API -->|REST| LocalLLM["LLM (Local Server)"]
 ```
