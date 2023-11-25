@@ -1,4 +1,15 @@
 ### BeautifulSoup_LangChain_chatGPT
+
+
+See also
+
+
+https://github.com/terrainternship/GPT_LaserLove
+
+
+https://github.com/terrainternship/GPT_LaserLove/forks
+
+
 Web parsing for AI Dialog System based on chatGPT
 
 
